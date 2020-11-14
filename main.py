@@ -12,33 +12,33 @@ def main():
 
     port = int(os.environ.get("PORT", 5000))
     print(1)
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='0.0.0.0', port=port)
 
 
 @app.route("/")
 def index():   # главная страница
     data = {}
-    data['top_1_1'] = 'Management Analysts (100000)'
-    data['top_1_2'] = '1Management Analysts (100000)'
-    data['top_1_3'] = 'M1anagement Analysts (100000)'
-    data['top_1_4'] = 'Ma1nagement Analysts (100000)'
-    data['top_1_5'] = 'Management Analysts (100000)'
-    data['top_1_6'] = 'Ma1nagement Analysts (100000)'
-    data['top_1_7'] = 'Ma11nagement Analysts (100000)'
-    data['top_1_8'] = 'Ma1nagement Analysts (100000)'
-    data['top_1_9'] = 'Management Analysts (100000)'
-    data['top_1_10'] = 'M1anagement Analysts (100000)'
+    data['top_1_1'] = 'Генеральные и операционные менеджеры (230000)'
+    data['top_1_2'] = 'Торговые представители, услуги, все прочее (146000)'
+    data['top_1_3'] = 'Управленческие аналитики (100000)'
+    data['top_1_4'] = 'Разработчики программного обеспечения, приложения (99000)'
+    data['top_1_5'] = 'Аналитики маркетинговых исследований и специалисты по маркетингу (91000)'
+    data['top_1_6'] = 'Специалисты по поддержке пользователей компьютеров (65000)'
+    data['top_1_7'] = 'Аналитики компьютерных систем (54000)'
+    data['top_1_8'] = 'Регистраторы и информационные служащие (158000)'
+    data['top_1_9'] = 'Веб-разработчики (15000)'
+    data['top_1_10'] = 'Менеджеры компьютерных и информационных систем (38000)'
 
-    data['top_2_1'] = 'Manag2ement Analysts (100000)'
-    data['top_2_2'] = 'Management Analysts (100000)'
-    data['top_2_3'] = 'Mana2gement Analysts (100000)'
-    data['top_2_4'] = 'Management Analysts (100000)'
-    data['top_2_5'] = 'Man2agement Analysts (100000)'
-    data['top_2_6'] = 'Management Analysts (100000)'
-    data['top_2_7'] = 'Mana22gement Analysts (100000)'
-    data['top_2_8'] = 'Mana2gement Analysts (100000)'
-    data['top_2_9'] = 'Man2agement Analysts (100000)'
-    data['top_2_10'] = 'Ma2nagement Analysts (100000)'
+    data['top_2_1'] = 'Изготовители моделей из металла и пластика (1000)'
+    data['top_2_2'] = 'Клерки по переписке (1000)'
+    data['top_2_3'] = 'Фотографы и операторы обрабатывающих машин (2000)'
+    data['top_2_4'] = 'Операторы компьютеров (3000)'
+    data['top_2_5'] = 'Механические составители (5000)'
+    data['top_2_6'] = 'Почтовые служащие и операторы почтовых аппаратов, кроме почтовой службы (9000)'
+    data['top_2_7'] = 'Фотографов (12000)'
+    data['top_2_8'] = 'Файловые клерки (12000)'
+    data['top_2_9'] = 'Юридические секретари (14000)'
+    data['top_2_10'] = 'Компьютерные программисты (15000)'
 
     return render_template("Main.html", **data)
 
