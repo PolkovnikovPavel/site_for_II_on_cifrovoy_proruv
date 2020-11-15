@@ -2,103 +2,25 @@
 
    <head>
 	<meta charset="utf-8">
-	<title>ТОП И АНТИТОП 10 ПРОФФЕСИЙ IT</title>
-   </head>
-<style type="text/css">
-div {
-    background: linear-gradient(to bottom, #00ffff 0%, #333399 100%);
-}
-BODY {
-	background: #333399;
-}
-TABLE {
-	margin-top: 5px;
-	margin-left: 615px;
-	width: 300px;
-	border-collapse: collapse;
-	border: 2px solid #00ffff;
-}
-TD, TH {
-	padding: 3px;
-	border: 1px solid #b00000;
-	text-align: left;
-}
-	</style>
-   </head>
+	<title>Результат востребовательности</title>
 
-   <body>
-	<div>
-	<table>
-		<tr>
-		<th><big>место</big></th><th><big>Топ самых перспективных работы</big></th>
-		</tr>
-		<tr>
-		<td>1</td><td>{{ top_1_1 }}</td>
-		</tr>
-		<tr>
-		<td>2</td><td>{{ top_1_2 }}</td>
-		</tr>
-		<tr>
-		<td>3</td><td>{{ top_1_3 }}</td>
-		</tr>
-		<tr>
-		<td>4</td><td>{{ top_1_4 }}</td>
-		</tr>
-		<tr>
-		<td>5</td><td>{{ top_1_5 }}</td>
-		</tr>
-		<tr>
-		<td>6</td><td>{{ top_1_6 }}</td>
-		</tr>
-		<tr>
-		<td>7</td><td>{{ top_1_7 }}</td>
-		</tr>
-		<tr>
-		<td>8</td><td>{{ top_1_8 }}</td>
-		</tr>
-		<tr>
-		<td>9</td><td>{{ top_1_9 }}</td>
-		</tr>
-		<tr>
-		<td>10</td><td>{{ top_1_10 }}</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-		<th><big>место</big></th><th><big>Топ самых не перспективных работы</big></th>
-		</tr>
-		<tr>
-		<td>1</td><td>{{ top_2_1 }}</td>
-		</tr>
-		<tr>
-		<td>2</td><td>{{ top_2_2 }}</td>
-		</tr>
-		<tr>
-		<td>3</td><td>{{ top_2_3 }}</td>
-		</tr>
-		<tr>
-		<td>4</td><td>{{ top_2_4 }}</td>
-		</tr>
-		<tr>
-		<td>5</td><td>{{ top_2_5 }}</td>
-		</tr>
-		<tr>
-		<td>6</td><td>{{ top_2_6 }}</td>
-		</tr>
-		<tr>
-		<td>7</td><td>{{ top_2_7 }}</td>
-		</tr>
-		<tr>
-		<td>8</td><td>{{ top_2_8 }}</td>
-		</tr>
-		<tr>
-		<td>9</td><td>{{ top_2_9 }}</td>
-		</tr>
-		<tr>
-		<td>10</td><td>{{ top_2_10 }}</td>
-		</tr>
-	</table>
-	</div>
+
+   <body style="background-color: #FEF1E6">
+   <div align="center">
+       <h1 >Получение предсказания от ИИ</h1>
+   </div>
+	<h4>Для получения результата нажмите на профессию</h4>
+    <br>
+    {% for name in names %}
+        <a href="/{{ name[1] }}">{{ name[0] }}</a>
+        <br>
+    {% endfor %}
+    <br>
+    <h4>Результат: {{ result }}</h4>
+    <br><br>
+    <div align="right">
+       <h4>По материалам с <a href="https://www.onetonline.org/find/industry?i=54&s=3" style="color:#0000FE">сайта</a>, данные берутся из датасета</h4>
+   </div>
    </body>
 
 </html>

@@ -1,0 +1,32 @@
+profession_name,area,perspective
+statistician,1,0.9
+Sellers,2,0.3
+Teachers,3,0.3
+Judges,4,0.6
+Actors,5,0.5
+Air traffic controllers,6,0.5
+Agricultural Equipment Operators,7,0.9
+Structural assemblers,8,0.4
+Architect,9,0.53
+Computer Systems Engineers / Architects,10,0.58
+Database Architects,11,0.58
+Advertising and Promotion Managers,12,0.553
+Information technology project managers,12,0.6
+Accommodation managers,12,0.5
+Interior designers,13,0.6
+Video game designers,13,0.6
+Graphic designers,13,0.52
+Computer Programmers,14,0.48
+Software developers,14,0.7
+System software developers,14,0.57
+software testers,15,0.59
+web administrators,16,0.59
+Network and computer system administrators,16,0.54
+Database administrators,16,0.57
+Software specialists,17,0.57
+Document Management Specialists,17,0.57
+Computer user support specialists,17,0.9
+Business intelligence analysts,18,0.57
+Search engine marketing strategists,19,0.58
+Web developers,20,0.9
+Statistics Helpers,21,0.58

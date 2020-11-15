@@ -1,10 +1,23 @@
 from flask import Flask, render_template, redirect, request, abort, url_for
 import os
 
+import numpy as np # библиотека для удобной работы с массивами
+import pandas as pd # библиотека для удобной работы с датасетами
+import matplotlib.pyplot as plt # библиотека для графики
+import seaborn as sns # библиотека для отображения диаграмм
+import seaborn as sns
+from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.utils import shuffle
+
 
 app = Flask(__name__)
 #app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=1)
 #app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+
+
+def define(data):  # получить предсказание с помощью ранее обученной модели
+    pred = linear_model.predict(data)
+    return pred
 
 
 def main():
@@ -12,36 +25,51 @@ def main():
 
     port = int(os.environ.get("PORT", 5000))
     print(1)
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='127.0.0.1', port=port)
 
 
 @app.route("/")
 def index():   # главная страница
-    data = {}
-    data['top_1_1'] = 'Генеральные и операционные менеджеры (230000)'
-    data['top_1_2'] = 'Торговые представители, услуги, все прочее (146000)'
-    data['top_1_3'] = 'Управленческие аналитики (100000)'
-    data['top_1_4'] = 'Разработчики программного обеспечения, приложения (99000)'
-    data['top_1_5'] = 'Аналитики маркетинговых исследований и специалисты по маркетингу (91000)'
-    data['top_1_6'] = 'Специалисты по поддержке пользователей компьютеров (65000)'
-    data['top_1_7'] = 'Аналитики компьютерных систем (54000)'
-    data['top_1_8'] = 'Регистраторы и информационные служащие (158000)'
-    data['top_1_9'] = 'Веб-разработчики (15000)'
-    data['top_1_10'] = 'Менеджеры компьютерных и информационных систем (38000)'
+    names = []
+    i = 0
+    for data in dataframe.profession_name.values:
+        names.append((data, dataframe.area.values[i]))
+        i += 1
 
-    data['top_2_1'] = 'Изготовители моделей из металла и пластика (1000)'
-    data['top_2_2'] = 'Клерки по переписке (1000)'
-    data['top_2_3'] = 'Фотографы и операторы обрабатывающих машин (2000)'
-    data['top_2_4'] = 'Операторы компьютеров (3000)'
-    data['top_2_5'] = 'Механические составители (5000)'
-    data['top_2_6'] = 'Почтовые служащие и операторы почтовых аппаратов, кроме почтовой службы (9000)'
-    data['top_2_7'] = 'Фотографов (12000)'
-    data['top_2_8'] = 'Файловые клерки (12000)'
-    data['top_2_9'] = 'Юридические секретари (14000)'
-    data['top_2_10'] = 'Компьютерные программисты (15000)'
+    return render_template("Main.html", result='', names=names)
 
-    return render_template("Main.html", **data)
+@app.route('/<int:num>')
+def main_num(num):
+    result = str(define([[num]]))
+
+    names = []
+    i = 0
+    for data in dataframe.profession_name.values:
+        names.append((data, dataframe.area.values[i]))
+        i += 1
+
+    return render_template("Main.html", result=result, names=names)
 
 
 if __name__ == '__main__':
+    dataframe = pd.read_csv(
+        'dataset.csv',
+        sep=',',  # что является разделителем колонок в файле,
+        decimal='.'
+        # что является разделителем десятичных дробей в записи чисел
+    )
+
+    # посмотрим на случайные 15 записей
+
+
+    random_indices = shuffle(range(len(dataframe)), random_state=1)
+    train_indices = random_indices
+
+    sliced = slice(len(train_indices) // 4, len(train_indices))
+    plt.scatter(dataframe['perspective'][sliced], dataframe['area'][sliced]);  # посмотреть как распределены данные
+
+    linear_model = LinearRegression().fit(
+        dataframe.area.values[train_indices][sliced].reshape(-1, 1),
+        dataframe.perspective[train_indices][sliced].values)
+
     main()   # старт
